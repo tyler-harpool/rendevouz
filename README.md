@@ -45,3 +45,9 @@ How to build the Rendevouz App
 - Using crates sets us up for supply chain hacks. Lets find a way to mitigate this.
 - We can use cargo audit to check for vulnerabilities. `cargo install cargo-audit`
 - We can run cargo-audit: `cargo audit`
+
+
+## CI/CD
+- We will use github actions for our CI/CD pipeline. You can find the respective files in this repo:
+`.github/workflows/pipeline.yaml` and `.github/workflows/audit.yaml`
+
