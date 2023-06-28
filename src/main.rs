@@ -1,6 +1,5 @@
-use rendevouz::run;
 
 #[tokio::main]
 async fn main() -> Result<(), std::io::Error> {
-    run()?.await
+    rendevouz::run("127.0.0.1:0")?.await
 }
