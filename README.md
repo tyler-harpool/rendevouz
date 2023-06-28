@@ -46,8 +46,14 @@ How to build the Rendevouz App
 - We can use cargo audit to check for vulnerabilities. `cargo install cargo-audit`
 - We can run cargo-audit: `cargo audit`
 
-
 ## CI/CD
 - We will use github actions for our CI/CD pipeline. You can find the respective files in this repo:
 `.github/workflows/pipeline.yaml` and `.github/workflows/audit.yaml`
+
+## Inspecting Macros
+- Macros main focus is code generation. We can inspect them using this tool. Macros operate at the token level they take in symbols and output new symbols. #[tokio::main]: is an example. 
+- `cargo install cargo-expand`
+- `cargo expand`
+- Relies on nightly compiler and not stable
+- `rustup toolchain install nightly --allow-downgrade`
 
