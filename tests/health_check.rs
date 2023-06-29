@@ -1,3 +1,4 @@
+use rendevouz::run;
 #[tokio::test]
 async fn health_check_works() {
     // Arrange
@@ -17,6 +18,6 @@ async fn health_check_works() {
 }
 // Launch our application in the background ~somehow~
 fn spawn_app() {
-    let server = rendevouz::run("127.0.0.1:0").expect("Failed to bind address");
+    let server = run("127.0.0.1:8000").expect("Failed to bind address");
     let _ = tokio::spawn(server);
 }
