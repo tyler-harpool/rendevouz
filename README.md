@@ -57,3 +57,5 @@ How to build the Rendevouz App
 - Relies on nightly compiler and not stable
 - `rustup toolchain install nightly --allow-downgrade`
 
+## Useful Links
+[How to setup two github accounts](https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3)
