@@ -24,5 +24,7 @@ fn spawn_app() -> String {
     let port = listener.local_addr().unwrap().port();
     let server = run(listener).expect("Failed to bind address");
     let _ = tokio::spawn(server);
+    
     format!("http://127.0.0.1:{}", port)
+    
 }
