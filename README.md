@@ -7,9 +7,10 @@ This will install the chainguard container image with Postgres. Change the defau
 
 ### Install sqlx client
 - ```COPY
-    cargo install --version="~0.6" sqlx-cli --no-default-features \
-    --features rustls,postgres
- ```
+cargo install --version="~0.6" sqlx-cli --no-default-features \
+--features rustls,postgres
+```
+
 - Test to see if it installed correct: `sqlx --help`
 
 ## Building
