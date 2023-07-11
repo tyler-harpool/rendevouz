@@ -24,8 +24,8 @@ How to build the Rendevouz App
 
 ## Coding
 - Running cargo watch will build after every code change.
-`cargo install cargo-watch`
-`cargo watch -x check`
+- `cargo install cargo-watch`
+- `cargo watch -x check`
 
 ## Testing
 - Run tests for the rendevouz application.
