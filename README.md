@@ -1,5 +1,10 @@
 # Rendevouz
 A backend built in rust for the Rendevouz app.
+## Setup Postgres Database Setup
+This will install the chainguard container image with Postgres. Change the default variable values in scripts/init_db.sh.
+`chmod +x scripts/init_db.sh`
+`./scripts/init_db.sh`
+
 ## Building
 How to build the Rendevouz App
 
