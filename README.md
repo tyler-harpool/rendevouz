@@ -5,6 +5,13 @@ This will install the chainguard container image with Postgres. Change the defau
 `chmod +x scripts/init_db.sh`
 `./scripts/init_db.sh`
 
+### Install sqlx client
+- ```COPY
+    cargo install --version="~0.6" sqlx-cli --no-default-features \
+    --features rustls,postgres
+ ```
+- Test to see if it installed correct: `sqlx --help`
+
 ## Building
 How to build the Rendevouz App
 
