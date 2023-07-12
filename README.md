@@ -1,11 +1,13 @@
 # Rendevouz
 A backend built in rust for the Rendevouz app.
 ## Setup Postgres Database Setup
-This will install the chainguard container image with Postgres. Change the default variable values in scripts/init_db.sh.
+This will install the chainguard container image with Postgres. Change the default variable values in scripts/init_db.sh. If you are inside WSL2 and trying to connect to a windows container host. Get the IP for your DATABASE_HOST variable from WSL2 using: `grep nameserver /etc/resolv.conf | awk '{print $2}'`
 - `chmod +x scripts/init_db.sh`
 - `./scripts/init_db.sh`
+- Prevent rebuilding docker and run migrations: `SKIP_DOCKER=true ./scripts/init_db.sh`
 
 ### Install sqlx client
+- Install psql using your package manager of choice.
 - `cargo install --version="~0.6" sqlx-cli --no-default-features \
 --features rustls,postgres`
 
