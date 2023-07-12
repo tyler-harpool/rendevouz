@@ -1,9 +1,10 @@
 use rendevouz::configuration::get_configuration;
 use rendevouz::startup::run;
+use sqlx::PgPool;
 use rstest::rstest;
 use std::net::SocketAddr;
 use std::net::TcpListener;
-use sqlx::PgPool;
+use uuid:Uuid;
 
 #[rstest]
 #[case("1.2.3.4:8080", 8080)]

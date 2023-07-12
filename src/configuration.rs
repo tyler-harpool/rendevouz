@@ -1,5 +1,6 @@
 #[derive(serde::Deserialize)]
 pub struct Settings {
+    pub address: String,
     pub database: DatabaseSettings,
     pub application_port: u16,
 }
