@@ -1,7 +1,7 @@
-use sqlx::{PgConnection, Connection};
 use rendevouz::configuration::get_configuration;
 use rendevouz::startup::run;
 use rstest::rstest;
+use sqlx::{Connection, PgConnection};
 use std::net::SocketAddr;
 use std::net::TcpListener;
 
@@ -62,10 +62,10 @@ async fn subscribe_returns_a_200_for_valid_form_data() {
 
     // Assert
     assert_eq!(200, response.status().as_u16());
-    let saved = sqlx::query("SELECT email, name FROM subscription",)
-    .fetch_one(&mut _connection)
-    .await
-    .expect("Failed to fetch saved subscription.");
+    let saved = sqlx::query("SELECT email, name FROM subscription")
+        .fetch_one(&mut _connection)
+        .await
+        .expect("Failed to fetch saved subscription.");
     assert_eq!(saved.email, "tylerharpool@gmail.com");
     assert_eq!(saved.name, "Tyler Harpool")
 }
