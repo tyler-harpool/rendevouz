@@ -24,7 +24,7 @@ DB_NAME="${POSTGRES_DB:=newsletter}"
 # Check if a custom port has been set, otherwise default to '5432'
 DB_PORT="${POSTGRES_PORT:=5432}"
 # Check if a custom host has been set, otherwise default to 'localhost'
-DB_HOST="${POSTGRES_HOST:=172.17.144.1}"
+DB_HOST="${POSTGRES_HOST:=localhost}"
 
 
 # Launch postgres using postgres containers
