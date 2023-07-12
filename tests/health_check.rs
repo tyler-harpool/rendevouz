@@ -1,4 +1,4 @@
-use rendevouz::run;
+use rendevouz::startup::run;
 use rstest::rstest;
 use std::net::SocketAddr;
 use std::net::TcpListener;
