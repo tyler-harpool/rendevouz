@@ -1,4 +1,4 @@
-use rendevouz::run;
+use rendevouz::startup::run;
 use std::net::TcpListener;
 
 #[tokio::main]
