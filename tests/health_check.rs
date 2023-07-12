@@ -1,10 +1,10 @@
 use rendevouz::configuration::get_configuration;
 use rendevouz::startup::run;
-use sqlx::PgPool;
 use rstest::rstest;
+use sqlx::PgPool;
 use std::net::SocketAddr;
 use std::net::TcpListener;
-use uuid:Uuid;
+use uuid::Uuid;
 
 #[rstest]
 #[case("1.2.3.4:8080", 8080)]
@@ -22,11 +22,9 @@ async fn spawn_app() -> TestApp {
     let port = listener.local_addr().unwrap().port();
     let address = format!("http://127.0.0.1:{}", port);
     let configuration = get_configuration().expect("Failed to read configuration");
-    let connection_pool = PgPool::connect(
-        &configuration.database.connection_string()
-    )
-    .await
-    .expect("Failed to connect to Postgres");
+    let connection_pool = PgPool::connect(&configuration.database.connection_string())
+        .await
+        .expect("Failed to connect to Postgres");
     let server = run(listener, connection_pool.clone()).expect("Failed to bind address");
     let _ = tokio::spawn(server);
 
@@ -34,8 +32,6 @@ async fn spawn_app() -> TestApp {
         address,
         db_pool: connection_pool,
     }
-
-   
 }
 
 #[tokio::test]

@@ -29,5 +29,4 @@ pub async fn subscribe(_form: web::Form<FormData>, _pool: web::Data<PgPool>) -> 
             HttpResponse::InternalServerError().finish()
         }
     }
-   
 }

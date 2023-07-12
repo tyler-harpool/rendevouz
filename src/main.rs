@@ -11,6 +11,9 @@ async fn main() -> Result<(), std::io::Error> {
         .expect("Failed to connect to Postgres");
     let address = format!("127.0.0.1:{}", configuration.application_port);
     let listener = TcpListener::bind(address)?;
-    println!("\n Rendevouz is running at: http://{}:{}/health_check\n", configuration.address, configuration.application_port);
+    println!(
+        "\n Rendevouz is running at: http://{}:{}/health_check\n",
+        configuration.address, configuration.application_port
+    );
     run(listener, connection_pool)?.await
 }
