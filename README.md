@@ -4,7 +4,7 @@ A backend built in rust for the Rendevouz app.
 This will install the chainguard container image with Postgres. Change the default variable values in scripts/init_db.sh. 
 - `chmod +x scripts/init_db.sh`
 - `./scripts/init_db.sh`
-- Prevent rebuilding docker and run migrations: `SKIP_DOCKER=true ./scripts/init_db.sh`
+- Prevent rebuilding docker and run sqlx database migrations: `SKIP_DOCKER=true ./scripts/init_db.sh`
 
 ### Install sqlx client
 - Install psql using your package manager of choice.
