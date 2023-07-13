@@ -8,8 +8,8 @@ use std::net::TcpListener;
 use uuid::Uuid;
 
 #[rstest]
-#[case("1.2.3.4:8080", 8080)]
-#[case("127.0.0.1:9000", 9000)]
+#[case("1.2.3.4:8000", 8000)]
+#[case("127.0.0.1:5432", 5432)]
 fn check_port(#[case] addr: SocketAddr, #[case] expected: u16) {
     assert_eq!(expected, addr.port());
 }
