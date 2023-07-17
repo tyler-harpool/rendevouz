@@ -70,5 +70,9 @@ How to build the Rendevouz App
 - Relies on nightly compiler and not stable
 - `rustup toolchain install nightly --allow-downgrade`
 
+# SSH keys
+- Make sure ssh-agent is running: `eval "$(ssh-agent -s)"`
+- Add your ssh key to the agent store: `ssh-add ~/.ssh/id_ed25519`
+
 ## Useful Links
 [How to setup two github accounts](https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3)

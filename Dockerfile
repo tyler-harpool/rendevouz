@@ -1,15 +1,15 @@
-# We use the latest Rust stable release as base image
-FROM rust:1.67
-# Let's switch our working directory to `app` (equivalent to `cd app`)
-# The `app` folder will be created for us by Docker in case it does not
-# exist already.
+ARG PACKAGE=rendevouz
+FROM rust:1.63.0-slim as build
+ENV CARGO_HTTP_CHECK_REVOKE false
+ENV SQLX_OFFLINE true
 WORKDIR /app
-# Install the required system dependencies for our linking configuration
-RUN apt update && apt install lld clang -y
-# Copy all files from our working environment to our Docker image
 COPY . .
-# Let's build our binary!
-# We'll use the release profile to make it faaaast
+COPY .cargo/config.toml /app/.cargo/config.yaml
 RUN cargo build --release
-# When `docker run` is executed, launch the 
-ENTRYPOINT ["./target/release/rendevouz"]
+
+
+FROM debian:bullseye-slim
+RUN apt update && apt install lld clang -y
+ENV SQLX_OFFLINE true
+COPY --from=build --chown=nonroot:nonroot /app/target/release/${PACKAGE} /usr/local/bin/${PACKAGE}
+CMD ["/usr/local/bin/${PACKAGE}"]

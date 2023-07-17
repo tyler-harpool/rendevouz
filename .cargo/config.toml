@@ -13,3 +13,5 @@ rustflags = ["-C", "link-arg=-fuse-ld=lld"]
 # - Arch, `sudo pacman -S lld clang`
 [target.x86_64-unknown-linux-gnu]
 rustflags = ["-C", "linker=clang", "-C", "link-arg=-fuse-ld=lld"]
+[http]
+check-revoke = true         # check for SSL certificate revocation
