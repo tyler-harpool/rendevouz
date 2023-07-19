@@ -3,7 +3,6 @@ use sqlx::postgres::PgConnectOptions;
 use sqlx::postgres::PgSslMode;
 use sqlx::ConnectOptions;
 
-
 #[derive(serde::Deserialize)]
 pub struct Settings {
     pub database: DatabaseSettings,
@@ -86,10 +85,6 @@ impl TryFrom<String> for Environment {
 impl DatabaseSettings {
     // Renamed from `connection_string_without_db`
     pub fn without_db(&self) -> PgConnectOptions {
-        let mut options = self.without_db().database(&self.database_name);
-        options.log_statements(tracing_log::log::LevelFilter::Trace);
-        options
-        }
         let ssl_mode = if self.require_ssl {
             PgSslMode::Require
         } else {
@@ -105,6 +100,8 @@ impl DatabaseSettings {
     }
     // Renamed from `connection_string`
     pub fn with_db(&self) -> PgConnectOptions {
-        self.without_db().database(&self.database_name)
+        let mut options = self.without_db().database(&self.database_name);
+        options.log_statements(tracing_log::log::LevelFilter::Trace);
+        options
     }
 }
