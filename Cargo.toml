@@ -6,39 +6,30 @@ authors = ["Tyler Harpool <tharpool@jackhenry.com"]
 
 [lib]
 path = "src/lib.rs"
+
 [[bin]]
 path = "src/main.rs"
 name = "rendevouz"
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 actix-web = "4"
 tokio = { version = "1", features = ["full"] }
 serde = { version = "1", features = ["derive"]}
 config = "0.13"
+sqlx = { version = "0.6", default-features = false, features = ["runtime-actix-rustls", "macros", "postgres", "uuid", "chrono", "migrate", "offline"] }
 uuid = { version = "1", features = ["v4"] }
 chrono = { version = "0.4.22", default-features = false, features = ["clock"] }
 env_logger = "0.9"
 log = "0.4"
 tracing = { version = "0.1", features = ["log"] }
+
 [dev-dependencies]
 reqwest = "0.11"
 rstest = "0.18.1"
+
 [profile.dev]
 opt-level = 0
 
 [profile.release]
 opt-level = 3
-
-[dependencies.sqlx]
-version = "0.6"
-default-features = false
-features = [
-    "runtime-tokio-rustls",
-    "macros",
-    "postgres",
-    "uuid",
-    "chrono",
-    "migrate"
-]
 

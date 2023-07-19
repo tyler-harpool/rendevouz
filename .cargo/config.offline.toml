@@ -13,3 +13,10 @@ rustflags = ["-C", "link-arg=-fuse-ld=lld"]
 # - Arch, `sudo pacman -S lld clang`
 [target.x86_64-unknown-linux-gnu]
 rustflags = ["-C", "linker=clang", "-C", "link-arg=-fuse-ld=lld"]
+
+[source.crates-io]
+replace-with = "vendored-sources"
+
+[source.vendored-sources]
+directory = "vendor"
+

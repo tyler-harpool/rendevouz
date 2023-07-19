@@ -31,7 +31,7 @@ DB_HOST="${POSTGRES_HOST:=localhost}"
 if [[ -z "${SKIP_DOCKER}" ]]
 then
     docker run --rm -d \
-    -v $PWD/data:/var/lib/postgresql/data \
+    -v /rendevouz-data:/var/lib/postgresql/data \
     -e POSTGRES_USER=${DB_USER} \
     -e POSTGRES_PASSWORD=${DB_PASSWORD} \
     -e POSTGRES_DB=${DB_NAME} \
