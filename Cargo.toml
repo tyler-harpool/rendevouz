@@ -12,6 +12,7 @@ path = "src/main.rs"
 name = "rendevouz"
 
 [dependencies]
+secrecy = { version = "0.8", features = ["serde"] }
 actix-web = "4"
 tokio = { version = "1", features = ["full"] }
 serde = { version = "1", features = ["derive"]}
