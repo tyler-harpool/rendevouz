@@ -4,7 +4,7 @@ name: rendevouz
 # `fra` stands for Frankfurt (Germany - EU)
 region: nyc3
 services:
-  - name: zero2prod
+  - name: rendevouz
     # Relative to the repository root
     dockerfile_path: containers/prod/Rendevouz.prod.Dockerfile
     source_dir: .
