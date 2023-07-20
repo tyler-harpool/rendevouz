@@ -102,7 +102,7 @@ impl DatabaseSettings {
     // Renamed from `connection_string`
     pub fn with_db(&self) -> PgConnectOptions {
         let mut options = self.without_db().database(&self.database_name);
-        options.log_statements(tracing_log::log::LevelFilter::Trace);
+        options.log_statements(tracing::log::LevelFilter::Trace);
         options
     }
 }
