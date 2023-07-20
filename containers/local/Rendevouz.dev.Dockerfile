@@ -1,7 +1,7 @@
 
 ARG PACKAGE=rendevouz
 
-FROM rust:1.69.0-slim as builder
+FROM rust:1.71.0-slim as builder
 
 ARG PACKAGE
 ENV SQLX_OFFLINE true
